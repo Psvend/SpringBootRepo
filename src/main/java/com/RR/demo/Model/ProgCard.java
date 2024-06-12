@@ -33,7 +33,7 @@ public class ProgCard {
     @Column(name = "RegisterNo")
     private String register_no;
 
-
+    //foreign key player_Id added to ProgCard from Player
     @ManyToOne
     @JoinColumn(name = "Player_ID", referencedColumnName = "Player_Id")
     private Players player_ID;
