@@ -14,10 +14,16 @@ public class GamesService {
   private GamesRepo gamesRepo;
 
     public Games saveGame(Games game) {
+      game.setGame_name(game.getGame_name());
+      game.setPlayers_amount(game.getPlayers_amount());
       return gamesRepo.save(game);
     }
 
     public List<Games> getAllGames() {
       return gamesRepo.findAll();
+    }
+
+    public Games getGameById(int game_id) {
+      return gamesRepo.findById(game_id).orElse(null);
     }
 }

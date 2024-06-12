@@ -32,4 +32,11 @@ public class Games {
         }
         this.game_name = game_name;
     }
+
+    public void setPlayers_amount(int players_amount) {
+        if(players_amount <= 0) {
+            throw new IllegalArgumentException("players_amount cannot be null");
+        }
+        this.players_amount = players_amount;
+    }
 }
