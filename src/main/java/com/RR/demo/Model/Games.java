@@ -25,4 +25,11 @@ public class Games {
 
     @Column(name = "Game_status")
     private int game_status;
+
+    public void setGame_name(String game_name) {
+        if(game_name == null) {
+            throw new IllegalArgumentException("game_name cannot be null");
+        }
+        this.game_name = game_name;
+    }
 }
