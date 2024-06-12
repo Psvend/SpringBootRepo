@@ -25,4 +25,10 @@ public class Games {
 
     @Column(name = "Game_status")
     private String game_status;
+
+    @ManyToOne
+    @JoinColumn(name = "Board_Id", referencedColumnName = "Board_Id")
+    private Board board_id;
+
+
 }
