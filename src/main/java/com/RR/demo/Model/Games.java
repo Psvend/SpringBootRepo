@@ -24,5 +24,5 @@ public class Games {
     private int players_amount;
 
     @Column(name = "Game_status")
-    private int game_status;
+    private String game_status;
 }
