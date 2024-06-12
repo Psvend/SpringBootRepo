@@ -18,11 +18,11 @@ public class ProgCard {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private int id;
+    @Column(name = "Card_Id")
+    private int card_id;
 
     @Column(name = "Type")
-    private String name;
+    private String type;
 
     @Column(name = "ExecutedStatus")
     private String executed_status;
@@ -32,5 +32,9 @@ public class ProgCard {
 
     @Column(name = "RegisterNo")
     private String register_no;
+
+    @ManyToOne
+    @JoinColumn(name = "Player_ID", referencedColumnName = "Id")
+    private Players player_ID;
 
 }

@@ -14,16 +14,16 @@ import lombok.NoArgsConstructor;
 public class Players {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private int id;
+    @Column(name = "Player_Id")
+    private int player_id;
 
-    @Column(name = "NAME")
-    private String name;
+    @Column(name = "Player_name")
+    private String player_name;
 
     @ManyToOne
-    @JoinColumn(name = "GAME_ID", referencedColumnName = "ID")
+    @JoinColumn(name = "Game_Id", referencedColumnName = "Game_Id")
     private Games game_id;
 
-    @Column(name = "PHASE_STATUS")
+    @Column(name = "Phase_Status")
     private boolean phase_status;
 }

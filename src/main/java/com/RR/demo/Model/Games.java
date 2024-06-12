@@ -14,15 +14,15 @@ import lombok.NoArgsConstructor;
 public class Games {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private int id;
+    @Column(name = "Game_Id")
+    private int game_id;
 
-    @Column(name = "NAME")
-    private String name;
+    @Column(name = "Game_name")
+    private String game_name;
 
-    @Column(name = "PLAYERS_AMOUNT")
+    @Column(name = "Players_amount")
     private int players_amount;
 
-    @Column(name = "GAME_STATUS")
+    @Column(name = "Game_status")
     private int game_status;
 }
