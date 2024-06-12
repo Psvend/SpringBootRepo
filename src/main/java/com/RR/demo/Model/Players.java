@@ -20,6 +20,7 @@ public class Players {
     @Column(name = "Player_name")
     private String player_name;
 
+
     @ManyToOne
     @JoinColumn(name = "Game_Id", referencedColumnName = "Game_Id")
     private Games game_id;

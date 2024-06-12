@@ -33,6 +33,7 @@ public class ProgCard {
     @Column(name = "RegisterNo")
     private String register_no;
 
+
     @ManyToOne
     @JoinColumn(name = "Player_ID", referencedColumnName = "Id")
     private Players player_ID;
