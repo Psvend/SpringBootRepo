@@ -35,7 +35,7 @@ public class ProgCard {
 
 
     @ManyToOne
-    @JoinColumn(name = "Player_ID", referencedColumnName = "Id")
+    @JoinColumn(name = "Player_ID", referencedColumnName = "Player_Id")
     private Players player_ID;
 
 }
