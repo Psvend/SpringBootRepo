@@ -23,8 +23,14 @@ public class Games {
     @Column(name = "Players_amount")
     private int players_amount;
 
+    @Column(name = "Joined_players")
+    private int joined_players;
+
     @Column(name = "Game_status")
     private int game_status;
+
+
+
 
     public void setGame_name(String game_name) {
         if(game_name == null) {
