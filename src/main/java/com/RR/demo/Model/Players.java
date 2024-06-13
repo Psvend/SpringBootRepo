@@ -17,14 +17,16 @@ public class Players {
     @Column(name = "Player_Id")
     private int player_id;
 
-    @Column(name = "Player_name")
+    @Column(name = "Player_name", nullable = false)
     private String player_name;
 
 
     @ManyToOne
-    @JoinColumn(name = "Game_Id", referencedColumnName = "Game_Id")
+    @JoinColumn(name = "Game_Id", referencedColumnName = "Game_Id", nullable = false)
     private Games game_id;
 
     @Column(name = "Phase_Status")
     private boolean phase_status;
+
+
 }

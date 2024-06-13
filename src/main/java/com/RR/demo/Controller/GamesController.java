@@ -3,6 +3,7 @@ package com.RR.demo.Controller;
 import com.RR.demo.Model.Games;
 import com.RR.demo.Service.GamesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,15 +19,12 @@ public class GamesController {
     }
 
     //This end point is used to create a new game.
-    //It takes a JSON object with Game's Name and Amount of players as parameters and returns the created game.
+    //It takes a JSON object with Game's Name and Amount of players as parameters.
     @PostMapping("/createGame")
-    public Games createGame(@RequestBody Games game){
-        return gamesService.saveGame(game);
+    public ResponseEntity<String> createGame(@RequestBody Games game){
+        gamesService.createGame(game, game.getPlayersList());
+        return ResponseEntity.ok("Game created");
     }
-
-
-
-
 
     @GetMapping("/getGames")
     public List<Games> getGames(){

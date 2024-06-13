@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 
 @Entity
 @Data
@@ -17,32 +19,20 @@ public class Games {
     @Column(name = "Game_Id")
     private int game_id;
 
-    @Column(name = "Game_name")
+    @Column(name = "Game_name" , nullable = false)
     private String game_name;
 
-    @Column(name = "Players_amount")
+    @Column(name = "Players_amount", nullable = false)
     private int players_amount;
 
     @Column(name = "Joined_players")
-    private int joined_players;
+    private int joined_players=1;
 
+    //It is used to store the status of the game 0 for not started, 1 for started and 2 for finished.
     @Column(name = "Game_status")
     private int game_status;
 
+    @OneToMany(mappedBy = "game_id" , cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Players> playersList;
 
-
-
-    public void setGame_name(String game_name) {
-        if(game_name == null) {
-            throw new IllegalArgumentException("game_name cannot be null");
-        }
-        this.game_name = game_name;
-    }
-
-    public void setPlayers_amount(int players_amount) {
-        if(players_amount <= 0) {
-            throw new IllegalArgumentException("players_amount cannot be null");
-        }
-        this.players_amount = players_amount;
-    }
 }
