@@ -12,8 +12,8 @@ public class GamesController {
     @Autowired
     private GamesService gamesService;
 
-    @PostMapping("/addGame")
-    public Games postGame(@RequestBody Games game){
+    @PostMapping("/saveGame")
+    public Games saveGame(@RequestBody Games game){
         return gamesService.saveGame(game);
     }
 }

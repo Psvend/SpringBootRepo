@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * @author Petrine
  */
@@ -24,5 +26,7 @@ public class Board {
     @Column(name = "Board_name")
     private String board_name;
 
+    @OneToMany(mappedBy = "board_id", cascade = CascadeType.ALL)
+    private List<Games> gamesList;
 
 }

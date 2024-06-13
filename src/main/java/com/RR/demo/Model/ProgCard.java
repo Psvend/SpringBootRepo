@@ -35,6 +35,6 @@ public class ProgCard {
 
     //foreign key player_Id added to ProgCard from Player
     @ManyToOne
-    @JoinColumn(name = "Player_ID", referencedColumnName = "Player_Id")
-    private Players player_ID;
+    @JoinColumn(name = "Player_Id", referencedColumnName = "Player_Id")
+    private Players player_id;
 }
