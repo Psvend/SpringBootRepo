@@ -8,6 +8,7 @@ import com.RR.demo.Repository.PlayersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,11 +25,15 @@ public class GamesService {
       return gamesRepo.save(game);
     }
 
-    public void createGame(Games game, List<Players> playersList) {
+    public Games createGame(Games game, List<Players> playersList) {
     game.setPlayersList(playersList);
     playersList.forEach(player -> player.setGame_id(game));
-    gamesRepo.save(game);
+    return gamesRepo.save(game);
     }
+
+  public List<Games> getAvailableGames(int game_status){
+    return gamesRepo.findByGameStatus(game_status);
+  }
 
 
     public List<Games> getAllGames() {

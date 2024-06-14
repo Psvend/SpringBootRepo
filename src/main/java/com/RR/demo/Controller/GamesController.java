@@ -22,8 +22,8 @@ public class GamesController {
     //It takes a JSON object with Game's Name and Amount of players as parameters.
     @PostMapping("/createGame")
     public ResponseEntity<Games> createGame(@RequestBody Games game){
-        gamesService.createGame(game, game.getPlayersList());
-        return ResponseEntity.ok().body(game);
+        Games newGame=gamesService.createGame(game, game.getPlayersList());
+        return ResponseEntity.ok().body(newGame);
     }
 
     //Posts when a player has pressed the start button in the lobby
@@ -31,6 +31,16 @@ public class GamesController {
     public ResponseEntity<Games> startGame(@RequestBody Games game) {
         gamesService.startGame(game, game.getJoined_players());
         return ResponseEntity.ok().body(game);
+    }
+
+
+
+    //JOIN
+   @GetMapping("/availableGames/{game_status}")
+    //list of games that have game_status = 0
+    public ResponseEntity<List<Games>> getAvailableGames(@PathVariable int game_status){
+        List<Games> availableGames = gamesService.getAvailableGames(game_status);
+        return ResponseEntity.ok().body(availableGames);
     }
 
 
