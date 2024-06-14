@@ -31,8 +31,8 @@ public class GamesController {
    @GetMapping("/availableGames/{game_status}")
     //list of games that have game_status = 0
     public ResponseEntity<List<Games>> getAvailableGames(@PathVariable int game_status){
-
-        return ResponseEntity.ok().body(gamesService.getAvailableGames(game_status));
+        List<Games> availableGames = gamesService.getAvailableGames(game_status);
+        return ResponseEntity.ok().body(availableGames);
     }
 
 
