@@ -22,13 +22,14 @@ public class Players {
     @Column(name = "Player_name", nullable = false)
     private String player_name;
 
+    //tracks whether a player is ready or done with the action
+    @Column(name = "Phase_Status")
+    private boolean phase_status;
+
     //foreign key game_id from Games
     @ManyToOne
     @JoinColumn(name = "Game_Id", referencedColumnName = "Game_Id", nullable = false)
     private Games game_id;
-
-    @Column(name = "Phase_Status")
-    private boolean phase_status;
 
     //foreign key player_id from Players
     @OneToMany(mappedBy = "player_id", cascade = CascadeType.ALL)

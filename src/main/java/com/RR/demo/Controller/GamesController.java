@@ -34,7 +34,6 @@ public class GamesController {
     }
 
 
-
     @GetMapping("/getGames")
     public List<Games> getGames(){
         return gamesService.getAllGames();
