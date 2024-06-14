@@ -21,10 +21,10 @@ public class GamesService {
       return gamesRepo.save(game);
     }
 
-    public void createGame(Games game, List<Players> playersList) {
+    public Games createGame(Games game, List<Players> playersList) {
     game.setPlayersList(playersList);
     playersList.forEach(player -> player.setGame_id(game));
-    gamesRepo.save(game);
+    return gamesRepo.save(game);
     }
 
   public List<Games> getAvailableGames(int game_status){
