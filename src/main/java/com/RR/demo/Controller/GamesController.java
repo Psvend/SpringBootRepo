@@ -21,16 +21,16 @@ public class GamesController {
     //This end point is used to create a new game.
     //It takes a JSON object with Game's Name and Amount of players as parameters.
     @PostMapping("/createGame")
-    public ResponseEntity<String> createGame(@RequestBody Games game){
+    public ResponseEntity<Games> createGame(@RequestBody Games game){
         gamesService.createGame(game, game.getPlayersList());
-        return ResponseEntity.ok("Game created");
+        return ResponseEntity.ok().body(game);
     }
 
     //Posts when a player has pressed the start button in the lobby
     @PostMapping("/startGame")
-    public ResponseEntity<String> startGame(@RequestBody Games game) {
+    public ResponseEntity<Games> startGame(@RequestBody Games game) {
         gamesService.startGame(game, game.getJoined_players());
-        return ResponseEntity.ok("Game starts");
+        return ResponseEntity.ok().body(game);
     }
 
 
