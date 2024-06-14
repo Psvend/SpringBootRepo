@@ -22,7 +22,7 @@ public class Players {
     @Column(name = "Player_name", nullable = false)
     private String player_name;
 
-
+    //foreign key game_id from Games
     @ManyToOne
     @JoinColumn(name = "Game_Id", referencedColumnName = "Game_Id", nullable = false)
     private Games game_id;
@@ -30,6 +30,7 @@ public class Players {
     @Column(name = "Phase_Status")
     private boolean phase_status;
 
+    //foreign key player_id from Players
     @OneToMany(mappedBy = "player_id", cascade = CascadeType.ALL)
     private List<ProgCard> progCardList;
 
