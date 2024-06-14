@@ -26,6 +26,16 @@ public class GamesController {
         return ResponseEntity.ok().body(game);
     }
 
+
+    //JOIN
+   @GetMapping("/availableGames/{game_status}")
+    //list of games that have game_status = 0
+    public ResponseEntity<List<Games>> getAvailableGames(@PathVariable int game_status){
+
+        return ResponseEntity.ok().body(gamesService.getAvailableGames(game_status));
+    }
+
+
     @GetMapping("/getGames")
     public List<Games> getGames(){
         return gamesService.getAllGames();
