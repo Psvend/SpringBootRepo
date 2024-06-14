@@ -21,9 +21,9 @@ public class GamesController {
     //This end point is used to create a new game.
     //It takes a JSON object with Game's Name and Amount of players as parameters.
     @PostMapping("/createGame")
-    public ResponseEntity<String> createGame(@RequestBody Games game){
+    public ResponseEntity<Games> createGame(@RequestBody Games game){
         gamesService.createGame(game, game.getPlayersList());
-        return ResponseEntity.ok("Game created");
+        return ResponseEntity.ok().body(game);
     }
 
     @GetMapping("/getGames")
