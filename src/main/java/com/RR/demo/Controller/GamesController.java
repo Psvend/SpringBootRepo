@@ -26,6 +26,15 @@ public class GamesController {
         return ResponseEntity.ok("Game created");
     }
 
+    //Posts when a player has pressed the start button in the lobby
+    @PostMapping("/startGame")
+    public ResponseEntity<String> startGame(@RequestBody Games game) {
+        gamesService.startGame(game, game.getJoined_players());
+        return ResponseEntity.ok("Game starts");
+    }
+
+
+
     @GetMapping("/getGames")
     public List<Games> getGames(){
         return gamesService.getAllGames();

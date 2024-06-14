@@ -4,7 +4,6 @@ package com.RR.demo.Service;
 import com.RR.demo.Model.Games;
 import com.RR.demo.Model.Players;
 import com.RR.demo.Repository.GamesRepo;
-import com.RR.demo.Repository.PlayersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,5 +35,9 @@ public class GamesService {
 
     public Games getGameById(int game_id) {
       return gamesRepo.findById(game_id).orElse(null);
+    }
+
+    public void startGame(Games game, int joinedPlayers) {
+      gamesRepo.findById(joinedPlayers);
     }
 }
