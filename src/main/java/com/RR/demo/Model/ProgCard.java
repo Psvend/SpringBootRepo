@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * @author Petrine
  */
@@ -33,8 +35,8 @@ public class ProgCard {
     @Column(name = "RegisterNo")
     private String register_no;
 
-    //foreign key player_Id added to ProgCard from Players
-    @ManyToOne
-    @JoinColumn(name = "Player_Id", referencedColumnName = "Player_Id")
-    private Players player_id;
+    //foreign key card_id
+    @OneToMany(mappedBy = "card_id" , cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProgCard> progCardListList;
+
 }
