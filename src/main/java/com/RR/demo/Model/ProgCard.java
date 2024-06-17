@@ -32,9 +32,6 @@ public class ProgCard {
     @Column(name = "Action")
     private String action;
 
-    @Column(name = "RegisterNo")
-    private String register_no;
-
     //foreign key card_id
     @OneToMany(mappedBy = "card_id" , cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProgCard> progCardListList;

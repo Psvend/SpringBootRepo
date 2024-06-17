@@ -24,6 +24,9 @@ public class Register {
     @Column(name = "Register_Name")
     private String register_name;
 
+    @Column(name = "RegisterNo")
+    private String register_no;
+
     //foreign key register_id from Players
     @ManyToOne
     @JoinColumn(name = "Player_Id", referencedColumnName = "Player_Id", nullable = false)
