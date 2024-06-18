@@ -23,20 +23,4 @@ public class PlayersService {
       return player;
     }
 
-
-
-    /* public void playerReady(int player_id) {
-      Players player = playersRepo.findById(player_id).orElseThrow(null);
-      player.setPhase_status(true);
-      playersRepo.save(player);
-
-      Games game = player.getGame_id();
-      boolean allReady = game.getPlayersList().stream().allMatch(Players::isPhase_status);
-
-      if(allReady) {
-        startGame(game, game.getJoined_players());
-      }
-    }*/
-
-
 }
