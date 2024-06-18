@@ -4,8 +4,10 @@ import com.RR.demo.Model.Games;
 import com.RR.demo.Model.Players;
 import com.RR.demo.Repository.GamesRepo;
 import com.RR.demo.Repository.PlayersRepo;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import jakarta.persistence.EntityManager;
 
 @Service
 public class PlayersService {
@@ -16,10 +18,12 @@ public class PlayersService {
     private GamesRepo gamesRepo;
 
 
-
+    @Transactional
     public Players addPlayer(Players player) {
       player =  playersRepo.save(player);
       gamesRepo.updateJoinedAmount(player.getGame_id().getGame_id());
+      gamesRepo.findById(player.getGame_id().getGame_id());
+      player.setGame_id(gamesRepo.findById(player.getGame_id().getGame_id()).get());
       return player;
     }
 

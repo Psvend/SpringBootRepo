@@ -5,6 +5,8 @@ import com.RR.demo.Model.Games;
 import com.RR.demo.Model.Players;
 import com.RR.demo.Repository.GamesRepo;
 import com.RR.demo.Repository.PlayersRepo;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,12 @@ import java.util.Optional;
 public class GamesService {
   @Autowired
   private GamesRepo gamesRepo;
+
+  @Autowired
+  private PlayersRepo playersRepo;
+
+
+
     public Games saveGame(Games game) {
       game.setGame_name(game.getGame_name());
       game.setPlayers_amount(game.getPlayers_amount());
@@ -44,6 +52,7 @@ public class GamesService {
       game.setGame_status(1);
       gamesRepo.save(game);
     }
+
 
 
 
