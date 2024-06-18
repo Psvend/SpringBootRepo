@@ -14,6 +14,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Games {
+
+    private Players player;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Game_Id")
@@ -36,6 +39,5 @@ public class Games {
     @ManyToOne
     @JoinColumn(name = "Board_Id", referencedColumnName = "Board_Id")
     private Board board_id;
-
 
 }

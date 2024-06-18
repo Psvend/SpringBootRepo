@@ -31,7 +31,6 @@ public class Players {
     @JoinColumn(name = "Game_Id", referencedColumnName = "Game_Id", nullable = false)
     private Games game_id;
 
-
     //foreign key player_Id fra Register
     /*@OneToMany(mappedBy = "player_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Players> playerList;*/

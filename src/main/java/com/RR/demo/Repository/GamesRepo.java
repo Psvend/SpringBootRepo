@@ -14,5 +14,7 @@ public interface GamesRepo extends JpaRepository<Games, Integer> {
     @Query(value = "SELECT all FROM Games all WHERE game_status=:status")
     public List<Games> findByGameStatus(@Param("status") int game_status);
 
+    //Find amount of joined players
+
 
 }
