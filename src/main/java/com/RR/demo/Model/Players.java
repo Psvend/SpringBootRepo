@@ -33,7 +33,7 @@ public class Players {
 
 
     //foreign key player_Id fra Register
-    @OneToMany(mappedBy = "player_id", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Players> playerList;
+    /*@OneToMany(mappedBy = "player_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Players> playerList;*/
 
 }

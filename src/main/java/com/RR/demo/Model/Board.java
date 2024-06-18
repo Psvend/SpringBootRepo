@@ -26,7 +26,7 @@ public class Board {
     @Column(name = "Board_name")
     private String board_name;
 
-    @OneToMany(mappedBy = "board_id", cascade = CascadeType.ALL)
-    private List<Games> gamesList;
+   /* @OneToMany(mappedBy = "board_id", cascade = CascadeType.ALL)
+    private List<Games> gamesList;*/
 
 }

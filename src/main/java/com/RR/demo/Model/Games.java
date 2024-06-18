@@ -32,10 +32,6 @@ public class Games {
     @Column(name = "Game_status")
     private int game_status;
 
-    //foreign key game_status
-    @OneToMany(mappedBy = "game_id" , cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Players> playersList;
-
     //foreign key board_id
     @ManyToOne
     @JoinColumn(name = "Board_Id", referencedColumnName = "Board_Id")

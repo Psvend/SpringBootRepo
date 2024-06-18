@@ -33,7 +33,7 @@ public class ProgCard {
     private String action;
 
     //foreign key card_id
-    @OneToMany(mappedBy = "card_id" , cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ProgCard> progCardListList;
+   /* @OneToMany(mappedBy = "card_id" , cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProgCard> progCardListList;*/
 
 }
