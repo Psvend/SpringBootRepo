@@ -53,4 +53,7 @@ public class GamesController {
     public Games getGameById(@PathVariable int game_id){
         return gamesService.getGameById(game_id);
     }
+
+
+
 }
