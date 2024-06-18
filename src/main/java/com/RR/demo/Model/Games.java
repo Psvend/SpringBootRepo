@@ -1,41 +1,100 @@
 package com.RR.demo.Model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.List;
-
 
 @Entity
 @Data
 @Table(name = "games")
-@NoArgsConstructor
-@AllArgsConstructor
 public class Games {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Game_Id")
-    private int game_id;
+    @Column(name = "game_id")
+    private int gameId;
 
-    @Column(name = "Game_name" , nullable = false)
-    private String game_name;
+    @Column(name = "game_name", nullable = false)
+    private String gameName;
 
-    @Column(name = "Players_amount", nullable = false)
-    private int players_amount;
+    @Column(name = "players_amount", nullable = false)
+    private int playersAmount;
 
-    @Column(name = "Joined_players")
-    private int joined_players=1;
+    @Column(name = "joined_players", nullable = false)
+    private int joinedPlayers;
 
-    //It is used to store the status of the game 0 for not started, 1 for started and 2 for finished.
-    @Column(name = "Game_status")
-    private int game_status;
+    @Column(name = "game_status", nullable = false)
+    private int gameStatus;
 
-    //foreign key board_id
+    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private List<Players> players;
+
     @ManyToOne
-    @JoinColumn(name = "Board_Id", referencedColumnName = "Board_Id")
-    private Board board_id;
+    @JoinColumn(name = "board_id", referencedColumnName = "board_id", nullable = false)
+    private Board board;
 
+    // Getters and setters
 
+    public int getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
+    }
+
+    public String getGameName() {
+        return gameName;
+    }
+
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
+    }
+
+    public int getPlayersAmount() {
+        return playersAmount;
+    }
+
+    public void setPlayersAmount(int playersAmount) {
+        this.playersAmount = playersAmount;
+    }
+
+    public int getJoinedPlayers() {
+        return joinedPlayers;
+    }
+
+    public void setJoinedPlayers(int joinedPlayers) {
+        this.joinedPlayers = joinedPlayers;
+    }
+
+    public int getGameStatus() {
+        return gameStatus;
+    }
+
+    public void setGameStatus(int gameStatus) {
+        this.gameStatus = gameStatus;
+    }
+
+    public List<Players> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Players> players) {
+        this.players = players;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    // Other constructors, toString, equals, hashCode methods can be added if needed
 }

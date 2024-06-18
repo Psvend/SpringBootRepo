@@ -1,32 +1,21 @@
 package com.RR.demo.Model;
+
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.util.List;
-
-/**
- * @author Petrine
- */
-
 
 @Entity
 @Data
-@Table(name = "Board")
-@NoArgsConstructor
-@AllArgsConstructor
+@Table(name = "board")
 public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Board_Id")
-    private int board_id;
+    @Column(name = "board_id")
+    private int boardId;
 
-    @Column(name = "Board_name")
-    private String board_name;
+    @Column(name = "board_name", nullable = false)
+    private String boardName;
 
-   /* @OneToMany(mappedBy = "board_id", cascade = CascadeType.ALL)
-    private List<Games> gamesList;*/
+    // Other properties, getters, setters, constructors, toString, equals, hashCode methods
 
 }

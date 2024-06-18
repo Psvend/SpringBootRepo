@@ -9,48 +9,52 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/games")
 public class GamesController {
+
     @Autowired
     private GamesService gamesService;
 
-    @PostMapping("/saveGame")
-    public Games saveGame(@RequestBody Games game){
-        return gamesService.saveGame(game);
+    @PostMapping("/save")
+    public ResponseEntity<Games> saveGame(@RequestBody Games game) {
+        Games savedGame = gamesService.saveGame(game);
+        return ResponseEntity.ok().body(savedGame);
     }
 
-    //This end point is used to create a new game.
-    //It takes a JSON object with Game's Name and Amount of players as parameters.
-    @PostMapping("/createGame")
-    public ResponseEntity<Games> createGame(@RequestBody Games game){
-        Games newGame=gamesService.createGame(game);
+    @PostMapping("/create")
+    public ResponseEntity<Games> createGame(@RequestBody Games game) {
+        Games newGame = gamesService.createGame(game);
         return ResponseEntity.ok().body(newGame);
     }
 
-    //Posts when a player has pressed the start button in the lobby
-    @PostMapping("/startGame")
-    public ResponseEntity<Games> startGame(@RequestBody Games game) {
-        gamesService.startGame(game, game.getJoined_players());
-        return ResponseEntity.ok().body(game);
-    }
-
-
-
-    //JOIN
-   @GetMapping("/availableGames/{game_status}")
-    //list of games that have game_status = 0
-    public ResponseEntity<List<Games>> getAvailableGames(@PathVariable int game_status){
-        List<Games> availableGames = gamesService.getAvailableGames(game_status);
+    @GetMapping("/available/{gameStatus}")
+    public ResponseEntity<List<Games>> getAvailableGames(@PathVariable int gameStatus) {
+        List<Games> availableGames = gamesService.getAvailableGames(gameStatus);
         return ResponseEntity.ok().body(availableGames);
     }
 
-
-    @GetMapping("/getGames")
-    public List<Games> getGames(){
-        return gamesService.getAllGames();
+    @GetMapping("/all")
+    public ResponseEntity<List<Games>> getAllGames() {
+        List<Games> games = gamesService.getAllGames();
+        return ResponseEntity.ok().body(games);
     }
 
-    @GetMapping("/getGameById/{game_id}")
-    public Games getGameById(@PathVariable int game_id){
-        return gamesService.getGameById(game_id);
+    @GetMapping("/{gameId}")
+    public ResponseEntity<Games> getGameById(@PathVariable int gameId) {
+        Games game = gamesService.getGameById(gameId);
+        if (game != null) {
+            return ResponseEntity.ok().body(game);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
+
+    @PostMapping("/start")
+    public ResponseEntity<Games> startGame(@RequestBody Games game) {
+        gamesService.startGame(game, game.getJoinedPlayers());
+        return ResponseEntity.ok().body(game);
+    }
+
+    // Other endpoints related to games can be added here
+
 }

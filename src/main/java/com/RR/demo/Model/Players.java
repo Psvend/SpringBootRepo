@@ -14,23 +14,21 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Players {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Player_Id")
-    private int player_id;
+    private int playerId;
 
     @Column(name = "Player_name", nullable = false)
-    private String player_name;
+    private String playerName;
 
-    //tracks whether a player is ready or done with the action
     @Column(name = "Phase_Status")
-    private boolean phase_status;
+    private boolean phaseStatus;
 
-    //foreign key game_id from Games
-    @ManyToOne
-    @JoinColumn(name = "Game_Id", referencedColumnName = "Game_Id", nullable = false)
-    private Games game_id;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Game_Id", referencedColumnName = "game_id", nullable = false)
+    private Games game;
 
     //foreign key player_Id fra Register
     /*@OneToMany(mappedBy = "player_id", cascade = CascadeType.ALL, orphanRemoval = true)
