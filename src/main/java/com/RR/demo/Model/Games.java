@@ -26,7 +26,7 @@ public class Games {
     private int players_amount;
 
     @Column(name = "Joined_players")
-    private int joined_players=1;
+    private int joined_players;
 
     //It is used to store the status of the game 0 for not started, 1 for started and 2 for finished.
     @Column(name = "Game_status")
