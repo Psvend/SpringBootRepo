@@ -34,6 +34,10 @@ public class GamesService {
     return gamesRepo.save(game);
     }
 
+    public int getJoinedPlayers(int game_id) {
+      return gamesRepo.getJoinedPlayers(game_id);
+    }
+
    public List<Games> getAvailableGames(int game_status){
     return gamesRepo.findByGameStatus(game_status);
   }

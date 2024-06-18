@@ -26,6 +26,22 @@ public class GamesController {
         return ResponseEntity.ok().body(newGame);
     }
 
+    @GetMapping("/getJoinedPlayers/{game_id}")
+    public int getJoinedPlayers(@PathVariable int game_id){
+        return gamesService.getJoinedPlayers(game_id);
+    }
+
+
+    //JOIN
+    @GetMapping("/availableGames/{game_status}")
+    //list of games that have game_status = 0
+    public ResponseEntity<List<Games>> getAvailableGames(@PathVariable int game_status){
+        List<Games> availableGames = gamesService.getAvailableGames(game_status);
+        return ResponseEntity.ok().body(availableGames);
+    }
+
+
+
     //Posts when a player has pressed the start button in the lobby
     @PostMapping("/startGame")
     public ResponseEntity<Games> startGame(@RequestBody Games game) {
@@ -35,13 +51,7 @@ public class GamesController {
 
 
 
-    //JOIN
-   @GetMapping("/availableGames/{game_status}")
-    //list of games that have game_status = 0
-    public ResponseEntity<List<Games>> getAvailableGames(@PathVariable int game_status){
-        List<Games> availableGames = gamesService.getAvailableGames(game_status);
-        return ResponseEntity.ok().body(availableGames);
-    }
+
 
 
     @GetMapping("/getGames")
