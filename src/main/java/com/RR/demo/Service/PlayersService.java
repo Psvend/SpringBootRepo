@@ -6,6 +6,9 @@ import com.RR.demo.Repository.GamesRepo;
 import com.RR.demo.Repository.PlayersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import jakarta.transaction.Transactional;
+
+import java.util.List;
 
 @Service
 public class PlayersService {
@@ -25,8 +28,6 @@ public class PlayersService {
     }
 
     public List<Players> findJoinedPlayers(int game_id){
-
-
         return playersRepo.findJoinedPlayers(game_id);
     }
 
