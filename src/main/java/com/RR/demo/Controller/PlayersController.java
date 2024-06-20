@@ -1,12 +1,14 @@
 package com.RR.demo.Controller;
 
+import com.RR.demo.Model.Games;
 import com.RR.demo.Model.Players;
 import com.RR.demo.Service.GamesService;
 import com.RR.demo.Service.PlayersService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class PlayersController {
@@ -19,5 +21,10 @@ public class PlayersController {
     @PostMapping("/addPlayer")
     public Players addPlayer(@RequestBody Players player){
         return playersService.addPlayer(player);
+    }
+
+    @GetMapping("/findJoinedPlayers/{game_id}")
+    public List<Players> getJoinedPlayers(@PathVariable int game_id){
+        return playersService.findJoinedPlayers(game_id);
     }
 }
