@@ -23,12 +23,16 @@ public class Players {
     private String player_name;
 
     //tracks whether a player is ready or done with the action
-    @Column(name = "Phase_Status")
+    @Column(name = "Phase_Status", nullable = true)
     private boolean phase_status;
 
     //foreign key game_id from Games
     @ManyToOne
     @JoinColumn(name = "Game_Id", referencedColumnName = "Game_Id", nullable = false)
     private Games game_id;
+
+    public int getGameID() {
+        return game_id.getGame_id();
+    }
 
 }

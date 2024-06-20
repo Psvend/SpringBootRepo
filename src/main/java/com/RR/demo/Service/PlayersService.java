@@ -6,7 +6,6 @@ import com.RR.demo.Repository.GamesRepo;
 import com.RR.demo.Repository.PlayersRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import jakarta.transaction.Transactional;
 
 @Service
 public class PlayersService {
@@ -25,20 +24,10 @@ public class PlayersService {
        return player;
     }
 
+    public List<Players> findJoinedPlayers(int game_id){
 
 
-    /* public void playerReady(int player_id) {
-      Players player = playersRepo.findById(player_id).orElseThrow(null);
-      player.setPhase_status(true);
-      playersRepo.save(player);
-
-      Games game = player.getGame_id();
-      boolean allReady = game.getPlayersList().stream().allMatch(Players::isPhase_status);
-
-      if(allReady) {
-        startGame(game, game.getJoined_players());
-      }
-    }*/
-
+        return playersRepo.findJoinedPlayers(game_id);
+    }
 
 }
