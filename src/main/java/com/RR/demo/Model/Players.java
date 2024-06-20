@@ -31,8 +31,5 @@ public class Players {
     @JoinColumn(name = "Game_Id", referencedColumnName = "Game_Id", nullable = false)
     private Games game_id;
 
-    public int getGameID() {
-        return game_id.getGame_id();
-    }
 
 }
