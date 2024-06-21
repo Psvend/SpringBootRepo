@@ -23,6 +23,9 @@ public class ProgCard {
     @Column(name = "Card_Id")
     private int card_id;
 
+    @Column(name = "Card_name")
+    private String card_name;
+
     @Column(name = "Type")
     private String type;
 

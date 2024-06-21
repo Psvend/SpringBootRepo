@@ -13,4 +13,6 @@ public interface PlayersRepo extends JpaRepository<Players, Integer> {
 
     @Query(value = "SELECT * FROM players WHERE game_id=:game_id", nativeQuery = true)
     public List<Players> findJoinedPlayers(@Param("game_id") int game_id);
+
+    //@Query(value = "INSERT ")
 }
