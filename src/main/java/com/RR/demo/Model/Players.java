@@ -24,7 +24,7 @@ public class Players {
 
     //tracks whether a player is ready or done with the action
     @Column(name = "Phase_Status", nullable = true)
-    private int phase_status;
+    private boolean phase_status;
 
     //foreign key game_id from Games
     @ManyToOne
