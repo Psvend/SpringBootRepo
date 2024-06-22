@@ -41,17 +41,12 @@ public class GamesController {
     }
 
 
-
     //Posts when a player has pressed the start button in the lobby
-    @PostMapping("/startGame")
+    @PutMapping("/startGame")
     public ResponseEntity<Games> startGame(@RequestBody Games game) {
-        gamesService.startGame(game, game.getJoined_players());
+        Games startedGame = gamesService.startGame(game);
         return ResponseEntity.ok().body(game);
     }
-
-
-
-
 
 
     @GetMapping("/getGames")

@@ -52,17 +52,11 @@ public class GamesService {
     }
 
     //sets the game status to start when all players are ready
-    public void startGame(Games game, int joinedPlayers) {
-      game.setGame_status(1);
-      gamesRepo.save(game);
+    public Games startGame(Games game) {
+      Games startedGame = gamesRepo.findById(game.getGame_id()).orElse(null);
+      if(startedGame != null) {
+        startedGame.setGame_status(game.getGame_status());
+        return gamesRepo.save(startedGame);
+      } return null;
     }
-
-
-
-
-
-    //
-
-
-
 }
