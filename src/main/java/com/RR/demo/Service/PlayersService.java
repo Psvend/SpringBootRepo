@@ -25,8 +25,8 @@ public class PlayersService {
     @Transactional
     public Players addPlayer(Players player) {
       player =  playersRepo.save(player);
-      gamesRepo.updateJoinedAmount(player.getGame_id().getGame_id());
-      player.setGame_id(gamesRepo.findById(player.getGame_id().getGame_id()).get());
+      //gamesRepo.updateJoinedAmount(player.getGame_id().getGame_id());
+      //player.setGame_id(gamesRepo.findById(player.getGame_id().getGame_id()).get());
        return player;
     }
 
