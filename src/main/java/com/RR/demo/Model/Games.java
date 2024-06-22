@@ -33,10 +33,4 @@ public class Games {
     //It is used to store the status of the game 0 for not started, 1 for started and 2 for finished.
     @Column(name = "Game_status")
     private int game_status;
-
-    //foreign key board_id
-    @ManyToOne
-    @JoinColumn(name = "Board_Id", referencedColumnName = "Board_Id")
-    private Board board_id;
-
 }
