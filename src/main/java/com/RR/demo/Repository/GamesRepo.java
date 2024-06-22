@@ -13,7 +13,7 @@ public interface GamesRepo extends JpaRepository<Games, Integer> {
 
 
     //Find by game_status
-    @Query(value = "SELECT all FROM Games all WHERE game_status=:status")
+    @Query(value = "SELECT all FROM Games all WHERE game_status=:status and joined_players < players_amount")
     public List<Games> findByGameStatus(@Param("status") int game_status);
 
     //opdates the amount of joined players by one every time a player joins the lobby
