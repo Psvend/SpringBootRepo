@@ -41,4 +41,8 @@ public class PlayersService {
         } return null;
     }
 
+    public int countPlayersWithPhaseStatusOne(int game_id){
+        return playersRepo.countPlayersWithPhaseStatusOne(game_id);
+    }
+
 }
