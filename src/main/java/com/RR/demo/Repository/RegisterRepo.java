@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface RegisterRepo extends JpaRepository<Register, String> {
 
-    @Query(value = "SELECT r.* FROM Register r INNER JOIN players p ON r.Player_Id = p.Player_Id WHERE p.Game_Id = :game_id", nativeQuery = true)
+    @Query(value = "SELECT r.* FROM register r INNER JOIN players p ON r.player_id = p.player_id WHERE p.game_Id = :game_id", nativeQuery = true)
     public List<Register> findRegistersByGameId(@Param("game_id") int game_id);
 
 }

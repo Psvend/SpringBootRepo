@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.List;
-
 /**
  * @author Petrine
  */
@@ -20,8 +18,8 @@ public class RegisterService {
     @Autowired
     private RegisterRepo registerRepo;
 
-    public List<Register> saveRegister(ArrayList<Register> registers) {
-        return registerRepo.saveAll(registers);
+    public void saveRegister(ArrayList<Register> registers) {
+        registerRepo.saveAll(registers);
     }
 
     public List<Register> findRegistersByGameId(int game_id) {

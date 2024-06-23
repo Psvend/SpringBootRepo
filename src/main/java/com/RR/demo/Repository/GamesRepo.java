@@ -19,7 +19,7 @@ public interface GamesRepo extends JpaRepository<Games, Integer> {
     //opdates the amount of joined players by one every time a player joins the lobby
     @Transactional
     @Modifying
-    @Query(value = "UPDATE Games SET joined_players = joined_players + 1 WHERE game_id=:game_id", nativeQuery = true)
+    @Query(value = "UPDATE games SET joined_players = joined_players + 1 WHERE game_id=:game_id", nativeQuery = true)
     public void updateJoinedAmount(@Param("game_id") int game_id);
 
     //finds amount of joined players in a specific game specified by client
