@@ -29,9 +29,16 @@ public class PlayersService {
         return player;
     }
 
-
     public List<Players> findJoinedPlayers(int game_id){
         return playersRepo.findJoinedPlayers(game_id);
+    }
+
+    public Players playerPhaseStatus(Players player) {
+        Players changePhase = playersRepo.findById(player.getPlayer_id()).orElse(null);
+        if(changePhase != null) {
+            changePhase.setPhase_status(player.getPhase_status());
+            return playersRepo.save(changePhase);
+        } return null;
     }
 
 }
