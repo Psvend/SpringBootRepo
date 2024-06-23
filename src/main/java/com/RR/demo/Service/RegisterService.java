@@ -5,6 +5,9 @@ import com.RR.demo.Repository.RegisterRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import java.util.List;
 
 /**
@@ -17,7 +20,7 @@ public class RegisterService {
     @Autowired
     private RegisterRepo registerRepo;
 
-    public List<Register> saveRegister(List<Register> registers) {
+    public List<Register> saveRegister(ArrayList<Register> registers) {
         return registerRepo.saveAll(registers);
     }
 

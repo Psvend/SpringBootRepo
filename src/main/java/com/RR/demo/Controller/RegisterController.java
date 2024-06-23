@@ -6,6 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 /**
@@ -16,9 +22,10 @@ public class RegisterController {
     @Autowired
     private RegisterService registerService;
 
-    @PostMapping("/registerPost")
-    public ResponseEntity<List<Register>> saveRegister(@RequestBody List<Register> registers) {
-        return ResponseEntity.ok(registerService.saveRegister(registers));
+    @PostMapping("/addRegisters")
+    public ResponseEntity<ArrayList> saveRegister(@RequestBody ArrayList<Register> registers) {
+        registerService.saveRegister(registers);
+        return ResponseEntity.ok().body(registers);
     }
 
     @GetMapping("/registerGet/{game_id}")
