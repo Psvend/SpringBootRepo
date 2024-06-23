@@ -24,6 +24,11 @@ public class PlayersController {
         return playersService.addPlayer(player);
     }
 
+    @GetMapping("/countPlayersWithPhaseStatusOne/{game_id}")
+    public int countPlayersWithPhaseStatusOne(@PathVariable int game_id){
+        return playersService.countPlayersWithPhaseStatusOne(game_id);
+    }
+
     @GetMapping("/findJoinedPlayers/{game_id}")
     public List<Players> getJoinedPlayers(@PathVariable int game_id){
         return playersService.findJoinedPlayers(game_id);

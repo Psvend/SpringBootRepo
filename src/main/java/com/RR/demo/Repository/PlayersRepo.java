@@ -13,4 +13,7 @@ public interface PlayersRepo extends JpaRepository<Players, Integer> {
 
     @Query(value = "SELECT * FROM players WHERE game_id=:game_id", nativeQuery = true)
     public List<Players> findJoinedPlayers(@Param("game_id") int game_id);
+
+    @Query(value = "SELECT COUNT(*) FROM players WHERE game_id=:game_id AND phase_status=1", nativeQuery = true)
+    public int countPlayersWithPhaseStatusOne(@Param("game_id") int game_id);
 }
